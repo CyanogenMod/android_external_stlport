@@ -262,9 +262,7 @@ float _STLP_CALL _LimG<__dummy>::get_F_sNaN() {
 template <class __dummy>
 double _STLP_CALL _LimG<__dummy>::get_D_inf() {
   _D_rep _D_inf = {_STLP_DOUBLE_INF_REP};
-  // FIXME(ANDROID): Temporary fix to get around compiler bug
-  //return _D_inf.val;
-  return __builtin_inf();
+  return _D_inf.val;
 }
 template <class __dummy>
 double _STLP_CALL _LimG<__dummy>::get_D_qNaN() {
