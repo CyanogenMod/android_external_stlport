@@ -531,6 +531,24 @@ _STLP_DEF_MATH_INLINE2(hypot, _hypot)
 #endif
 
 #if defined (_STLP_IMPORT_VENDOR_CSTD) && !defined (_STLP_NO_CSTD_FUNCTION_IMPORTS)
+#if defined (ANDROID)
+namespace __captured {
+template<typename _Tp> inline int __capture_isfinite(_Tp __f) { return isfinite(__f); }
+template<typename _Tp> inline int __capture_isinf(_Tp __f) { return isinf(__f); }
+template<typename _Tp> inline int __capture_isnan(_Tp __f) { return isnan(__f); }
+template<typename _Tp> inline int __capture_signbit(_Tp __f) { return signbit(__f); }
+}
+#undef isfinite
+#undef isinf
+#undef isnan
+#undef signbit
+namespace __captured {
+template<typename _Tp> inline int isfinite(_Tp __f) { return __capture_isfinite(__f); }
+template<typename _Tp> inline int isinf(_Tp __f) { return __capture_isinf(__f); }
+template<typename _Tp> inline int isnan(_Tp __f) { return __capture_isnan(__f); }
+template<typename _Tp> inline int signbit(_Tp __f) { return __capture_signbit(__f); }
+}
+#endif
 _STLP_BEGIN_NAMESPACE
 using ::abs;
 using ::acos;
@@ -555,11 +573,19 @@ using ::frexp;
 #if !(defined(__HP_aCC) && defined(_STLP_DEBUG))
 using ::hypot;
 #endif
+#if defined (ANDROID)
+using __captured::isfinite;
+using __captured::isinf;
+using __captured::isnan;
+#endif
 using ::ldexp;
 using ::log;
 using ::log10;
 using ::modf;
 using ::pow;
+#if defined (ANDROID)
+using __captured::signbit;
+#endif
 using ::sin;
 using ::sinh;
 using ::sqrt;
