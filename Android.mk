@@ -42,8 +42,6 @@ LOCAL_SRC_FILES += \
 
 LOCAL_MODULE := libstlport
 
-LOCAL_PRELINK_MODULE := false
-
 LOCAL_CFLAGS := -D_GNU_SOURCE
 LOCAL_CPPFLAGS := -fuse-cxa-atexit
 
