@@ -27,8 +27,8 @@
 // No pthread_spinlock_t in Android
 #define _STLP_DONT_USE_PTHREAD_SPINLOCK 1
 
-// Do not enable thread support
-#define _NOTHREADS 1
+// Enable thread support
+#undef _NOTHREADS
 
 // Little endian platform.
 #define _STLP_LITTLE_ENDIAN 1
