@@ -45,6 +45,9 @@ LOCAL_MODULE := libstlport
 LOCAL_CFLAGS := -D_GNU_SOURCE
 LOCAL_CPPFLAGS := -fuse-cxa-atexit
 
+LOCAL_NDK_VERSION := 4
+LOCAL_SDK_VERSION := 8
+
 include $(LOCAL_PATH)/libstlport.mk
 
 include $(BUILD_SHARED_LIBRARY)
