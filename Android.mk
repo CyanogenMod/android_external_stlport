@@ -4,9 +4,7 @@
 ifneq ($(TARGET_SIMULATOR),true)
 LOCAL_PATH := $(call my-dir)
 
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES += \
+libstlport_src_files := \
 	src/dll_main.cpp \
 	src/fstream.cpp \
 	src/strstream.cpp \
@@ -40,15 +38,39 @@ LOCAL_SRC_FILES += \
 	src/c_locale.c \
 	src/cxa.c \
 
+libstlport_cflags := -D_GNU_SOURCE
+libstlport_cppflags := -fuse-cxa-atexit
+
+##########################################
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := $(libstlport_src_files)
+
 LOCAL_MODULE := libstlport
 
-LOCAL_CFLAGS := -D_GNU_SOURCE
-LOCAL_CPPFLAGS := -fuse-cxa-atexit
+LOCAL_CFLAGS := $(libstlport_cflags)
+LOCAL_CPPFLAGS := $(libstlport_cppflags)
 
 LOCAL_NDK_VERSION := 4
 LOCAL_SDK_VERSION := 8
 
 include $(LOCAL_PATH)/libstlport.mk
-
 include $(BUILD_SHARED_LIBRARY)
+
+##########################################
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := $(libstlport_src_files)
+
+LOCAL_MODULE := libstlport_static
+
+LOCAL_CFLAGS := $(libstlport_cflags)
+LOCAL_CPPFLAGS := $(libstlport_cppflags)
+
+LOCAL_NDK_VERSION := 4
+LOCAL_SDK_VERSION := 8
+
+include $(LOCAL_PATH)/libstlport.mk
+include $(BUILD_STATIC_LIBRARY)
+
 endif
