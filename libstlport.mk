@@ -6,7 +6,7 @@ $(error STLPort not suitable for the simulator! $(LOCAL_PATH))
 endif
 
 ifdef LOCAL_NDK_VERSION
-stlport_NDK_VERSION_ROOT := $(HISTORICAL_NDK_VERSIONS_ROOT)/android-ndk-r$(LOCAL_NDK_VERSION)/$(BUILD_OS)/platforms/android-$(LOCAL_SDK_VERSION)/arch-$(TARGET_ARCH)
+stlport_NDK_VERSION_ROOT := $(HISTORICAL_NDK_VERSIONS_ROOT)/android-ndk-r$(LOCAL_NDK_VERSION)/platforms/android-$(LOCAL_SDK_VERSION)/arch-$(TARGET_ARCH)
 LOCAL_C_INCLUDES := \
 	$(stlport_NDK_VERSION_ROOT) \
 	external/stlport/stlport \
