@@ -87,4 +87,9 @@
 // Android does have include_next but it doesn't work well in our build system.
 #undef _STLP_HAS_INCLUDE_NEXT
 
+// Android X86 target uses GCC 4.2.1 which apparently has this problem
+#if defined(__i386__)
+#   define _STLP_CONST_CONSTRUCTOR_BUG 1
+#endif
+
 #endif /* __stl_config__android_h */
