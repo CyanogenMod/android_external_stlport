@@ -92,4 +92,11 @@
 #   define _STLP_CONST_CONSTRUCTOR_BUG 1
 #endif
 
+#if !defined(__BUILDING_STLPORT)
+// Turn off container extension which fails correct, standard-compliant code.
+// Note: Container extension uses template member function to implement
+// insert, find, ... member functions of the containers.
+#define _STLP_NO_CONTAINERS_EXTENSION 1
+#endif
+
 #endif /* __stl_config__android_h */
