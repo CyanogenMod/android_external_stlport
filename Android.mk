@@ -1,7 +1,3 @@
-# We cannot use stlport on the simulator because it conficts with the host stl
-# library. Android's port also relies on bionic which is not built for the
-# simulator either.
-ifneq ($(TARGET_SIMULATOR),true)
 LOCAL_PATH := $(call my-dir)
 
 libstlport_src_files := \
@@ -76,5 +72,3 @@ endif
 
 include $(LOCAL_PATH)/libstlport.mk
 include $(BUILD_STATIC_LIBRARY)
-
-endif
