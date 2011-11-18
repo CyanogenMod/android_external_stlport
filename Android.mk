@@ -52,7 +52,7 @@ LOCAL_MODULE := libstlport
 LOCAL_CFLAGS := $(libstlport_cflags)
 LOCAL_CPPFLAGS := $(libstlport_cppflags)
 
-ifneq ($(TARGET_ARCH),x86)
+ifeq ($(TARGET_ARCH),arm)
 LOCAL_NDK_VERSION := 4
 LOCAL_SDK_VERSION := 8
 endif
@@ -70,7 +70,7 @@ LOCAL_MODULE := libstlport_static
 LOCAL_CFLAGS := $(libstlport_cflags)
 LOCAL_CPPFLAGS := $(libstlport_cppflags)
 
-ifneq ($(TARGET_ARCH),x86)
+ifeq ($(TARGET_ARCH),arm)
 LOCAL_NDK_VERSION := 4
 LOCAL_SDK_VERSION := 8
 endif
