@@ -34,8 +34,8 @@ libstlport_src_files := \
 	src/c_locale.c \
 	src/cxa.c \
 
-libstlport_cflags := -D_GNU_SOURCE
-libstlport_cppflags := -fuse-cxa-atexit
+libstlport_cflags := -D_GNU_SOURCE -fPIC
+libstlport_cppflags := -fuse-cxa-atexit -fPIC
 
 ##########################################
 include $(CLEAR_VARS)
@@ -52,10 +52,10 @@ LOCAL_MODULE := libstlport
 LOCAL_CFLAGS := $(libstlport_cflags)
 LOCAL_CPPFLAGS := $(libstlport_cppflags)
 
-ifneq ($(TARGET_ARCH),x86)
-LOCAL_NDK_VERSION := 4
-LOCAL_SDK_VERSION := 8
-endif
+#ifneq ($(TARGET_ARCH),x86)
+#LOCAL_NDK_VERSION := 4
+#LOCAL_SDK_VERSION := 8
+#endif
 
 include $(LOCAL_PATH)/libstlport.mk
 include $(BUILD_SHARED_LIBRARY)
@@ -70,10 +70,10 @@ LOCAL_MODULE := libstlport_static
 LOCAL_CFLAGS := $(libstlport_cflags)
 LOCAL_CPPFLAGS := $(libstlport_cppflags)
 
-ifneq ($(TARGET_ARCH),x86)
-LOCAL_NDK_VERSION := 4
-LOCAL_SDK_VERSION := 8
-endif
+#ifneq ($(TARGET_ARCH),x86)
+#LOCAL_NDK_VERSION := 4
+#LOCAL_SDK_VERSION := 8
+#endif
 
 include $(LOCAL_PATH)/libstlport.mk
 include $(BUILD_STATIC_LIBRARY)
