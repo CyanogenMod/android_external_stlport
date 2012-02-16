@@ -34,8 +34,8 @@ libstlport_src_files := \
 	src/c_locale.c \
 	src/cxa.c \
 
-libstlport_cflags := -D_GNU_SOURCE
-libstlport_cppflags := -fuse-cxa-atexit
+libstlport_cflags := -D_GNU_SOURCE -fPIC
+libstlport_cppflags := -fuse-cxa-atexit -fPIC
 
 ##########################################
 include $(CLEAR_VARS)

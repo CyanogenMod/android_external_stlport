@@ -210,7 +210,7 @@ class numeric_limits<unsigned char>
   : public _STLP_PRIV _Integer_limits<unsigned char, 0, UCHAR_MAX, -1, true>
 {};
 
-#if !(defined (_STLP_NO_WCHAR_T) || defined (_STLP_WCHAR_T_IS_USHORT))
+#if !(defined (_STLP_NO_WCHAR_T) || defined (_STLP_WCHAR_T_IS_USHORT)) && !defined(__clang__)
 
 _STLP_TEMPLATE_NULL
 class numeric_limits<wchar_t>
