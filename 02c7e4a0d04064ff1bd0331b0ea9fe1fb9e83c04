@@ -1,0 +1,9 @@
+Change-Id: I02c7e4a0d04064ff1bd0331b0ea9fe1fb9e83c04
+Code-Review+2: Ricardo Cerqueira <cyanogenmod@cerqueira.org>
+Verified+1: Ricardo Cerqueira <cyanogenmod@cerqueira.org>
+Code-Review+1: Bernhard Rosenkraenzer <Bernhard.Rosenkranzer@linaro.org>
+Submitted-by: Ricardo Cerqueira <cyanogenmod@cerqueira.org>
+Submitted-at: Tue, 12 Jun 2012 03:12:06 +0400
+Reviewed-on: http://review.cyanogenmod.com/17375
+Project: CyanogenMod/android_external_stlport
+Branch: refs/heads/ics
