@@ -292,7 +292,7 @@ public:
 #endif
   allocator(const allocator<_Tp>&) _STLP_NOTHROW {}
 #if !defined (_STLP_NO_MOVE_SEMANTIC)
-  allocator(__move_source<allocator<_Tp> > src) _STLP_NOTHROW {}
+  allocator(__move_source<allocator<_Tp> > _STLP_UNUSED(src)) _STLP_NOTHROW {}
 #endif
   ~allocator() _STLP_NOTHROW {}
   pointer address(reference __x) const {return &__x;}
