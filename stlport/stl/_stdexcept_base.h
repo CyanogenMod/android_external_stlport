@@ -25,8 +25,9 @@
 #    include <stl/_exception.h>
 #  endif
 
-#  if defined(_STLP_USE_EXCEPTIONS) || \
-    !(defined(_MIPS_SIM) && defined(_ABIO32) && (_MIPS_SIM == _ABIO32))
+#  if defined(_STLP_USE_EXCEPTIONS) || 1
+/* TODO: use same conditions on fwd def of __Named_exception
+         in _exception.h and its use in _ios_base.h */
 
 #    ifndef _STLP_INTERNAL_CSTRING
 #      include <stl/_cstring.h>
