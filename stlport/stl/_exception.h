@@ -185,11 +185,8 @@ public:
 #  endif
 };
 
-#ifdef _STLP_USE_EXCEPTIONS
 // forward declaration
 class __Named_exception;
-#endif
-
 _STLP_END_NAMESPACE
 #endif
 
