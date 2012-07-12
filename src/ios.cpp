@@ -30,7 +30,6 @@ _STLP_BEGIN_NAMESPACE
 //----------------------------------------------------------------------
 // ios_base members
 
-#ifdef _STLP_USE_EXCEPTIONS
 // class ios_base::failure, a subclass of exception.  It's used solely
 // for reporting errors.
 
@@ -39,7 +38,6 @@ ios_base::failure::failure(const string& s)
 {}
 
 ios_base::failure::~failure() _STLP_NOTHROW_INHERENTLY {}
-#endif
 
 #if !defined (_STLP_STATIC_CONST_INIT_BUG) && !defined (_STLP_NO_STATIC_CONST_DEFINITION)
 // Definitions of ios_base's formatting flags.
