@@ -52,11 +52,6 @@ LOCAL_MODULE := libstlport
 LOCAL_CFLAGS := $(libstlport_cflags)
 LOCAL_CPPFLAGS := $(libstlport_cppflags)
 
-ifeq ($(TARGET_ARCH),arm)
-LOCAL_NDK_VERSION := 4
-LOCAL_SDK_VERSION := 8
-endif
-
 include $(LOCAL_PATH)/libstlport.mk
 include $(BUILD_SHARED_LIBRARY)
 
@@ -69,11 +64,6 @@ LOCAL_MODULE := libstlport_static
 
 LOCAL_CFLAGS := $(libstlport_cflags)
 LOCAL_CPPFLAGS := $(libstlport_cppflags)
-
-ifeq ($(TARGET_ARCH),arm)
-LOCAL_NDK_VERSION := 4
-LOCAL_SDK_VERSION := 8
-endif
 
 include $(LOCAL_PATH)/libstlport.mk
 include $(BUILD_STATIC_LIBRARY)
