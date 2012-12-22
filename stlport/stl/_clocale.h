@@ -31,7 +31,7 @@
 #  if defined (_STLP_IMPORT_VENDOR_CSTD)
 _STLP_BEGIN_NAMESPACE
 using _STLP_VENDOR_CSTD::lconv;
-#    if !defined (_STLP_NO_CSTD_FUNCTION_IMPORTS)
+#    if !defined (_STLP_NO_CSTD_FUNCTION_IMPORTS) && !defined(__ANDROID__)
 using _STLP_VENDOR_CSTD::localeconv;
 using _STLP_VENDOR_CSTD::setlocale;
 #    endif
