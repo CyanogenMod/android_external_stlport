@@ -28,7 +28,7 @@
 
 _STLP_BEGIN_NAMESPACE
 
-static const string _Nameless("*");
+static const char _Nameless[] = "*";
 
 static inline bool is_C_locale_name (const char* name)
 { return ((name[0] == 'C') && (name[1] == 0)); }
