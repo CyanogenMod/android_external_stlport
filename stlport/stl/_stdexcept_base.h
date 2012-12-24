@@ -25,9 +25,7 @@
 #    include <stl/_exception.h>
 #  endif
 
-#  if defined(_STLP_USE_EXCEPTIONS) || 1
-/* TODO: use same conditions on fwd def of __Named_exception
-         in _exception.h and its use in _ios_base.h */
+#  if defined(_STLP_USE_EXCEPTIONS)
 
 #    ifndef _STLP_INTERNAL_CSTRING
 #      include <stl/_cstring.h>
@@ -93,7 +91,7 @@ private:
 
 _STLP_END_NAMESPACE
 
-#  endif /* Not o32, and no exceptions */
-#endif /* _STLP_STDEXCEPT_SEEN */
+#  endif /* _STLP_USE_EXCEPTIONS */
+#endif
 
 #endif /* _STLP_INTERNAL_STDEXCEPT_BASE */
