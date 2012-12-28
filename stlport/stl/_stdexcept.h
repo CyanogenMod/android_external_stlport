@@ -25,7 +25,7 @@
 
 #if !defined (_STLP_USE_NATIVE_STDEXCEPT) || defined (_STLP_USE_OWN_NAMESPACE)
 
-#  if defined(_STLP_USE_EXCEPTIONS) || 1
+#  if defined(_STLP_USE_EXCEPTIONS)
 
 _STLP_BEGIN_NAMESPACE
 
@@ -103,7 +103,7 @@ public:
 
 _STLP_END_NAMESPACE
 
-#  endif
+#  endif /* _STLP_USE_EXCEPTIONS */
 #endif
 
 #endif /* _STLP_INTERNAL_STDEXCEPT */
