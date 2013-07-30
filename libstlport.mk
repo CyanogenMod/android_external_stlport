@@ -1,7 +1,10 @@
-# Add a couple include paths to use stlport.
+# To use stlport, "include external/stlport/libstlport.mk" in your target.
 
-# Make sure bionic is first so we can include system headers.
+# We *prepend* the STL libraries.
 LOCAL_C_INCLUDES := \
-	bionic \
 	external/stlport/stlport \
+	bionic \
+        bionic/libstdc++/include \
 	$(LOCAL_C_INCLUDES)
+
+LOCAL_SHARED_LIBRARIES += libstlport
