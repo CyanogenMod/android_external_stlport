@@ -34,6 +34,11 @@ libstlport_src_files := \
 	src/c_locale.c \
 	src/cxa.c \
 
+libstlport_c_includes := \
+	external/stlport/stlport \
+	bionic \
+        bionic/libstdc++/include \
+
 libstlport_cflags := -D_GNU_SOURCE
 libstlport_cppflags := -fuse-cxa-atexit
 
@@ -48,11 +53,11 @@ LOCAL_SRC_FILES := $(libstlport_src_files)
 LOCAL_SRC_FILES += src/sincos.c
 
 LOCAL_MODULE := libstlport
+LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
 
 LOCAL_CFLAGS := $(libstlport_cflags)
 LOCAL_CPPFLAGS := $(libstlport_cppflags)
-
-include $(LOCAL_PATH)/libstlport.mk
+LOCAL_C_INCLUDES := $(libstlport_c_includes)
 include $(BUILD_SHARED_LIBRARY)
 
 ##########################################
@@ -61,9 +66,9 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := $(libstlport_src_files)
 
 LOCAL_MODULE := libstlport_static
+LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
 
 LOCAL_CFLAGS := $(libstlport_cflags)
 LOCAL_CPPFLAGS := $(libstlport_cppflags)
-
-include $(LOCAL_PATH)/libstlport.mk
+LOCAL_C_INCLUDES := $(libstlport_c_includes)
 include $(BUILD_STATIC_LIBRARY)
