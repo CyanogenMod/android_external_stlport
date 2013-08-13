@@ -653,7 +653,17 @@ struct remove_reference<_Tp&>
 {
     typedef _Tp type;
 };
-  
+
+#if __cplusplus >= 201103L
+// This shouldn't be in tr1 but was added here anyways since the existing remove_reference is in
+// tr1.
+template <class _Tp>
+struct remove_reference<_Tp&&>
+{
+    typedef _Tp type;
+};
+#endif
+
 template <class _Tp>
 struct add_reference
 {
