@@ -73,7 +73,7 @@ extern "C" int __nanosleep(const struct timespec*, struct timespec*);
 
 template <int __inst>
 void _STLP_CALL
-_STLP_mutex_spin<__inst>::_S_nsec_sleep(int __log_nsec, unsigned int& __iteration) {
+_STLP_mutex_spin<__inst>::_S_nsec_sleep(int __log_nsec, unsigned int& _STLP_UNUSED(__iteration)) {
 #  if defined (_STLP_WIN32THREADS)
 #    if defined (_WIN32_WINNT) && (_WIN32_WINNT >= 0x0400)
   if (__iteration <= 4000) {
@@ -115,7 +115,7 @@ _STLP_mutex_spin<__inst>::_S_nsec_sleep(int __log_nsec, unsigned int& __iteratio
 
 template <int __inst>
 void  _STLP_CALL
-_STLP_mutex_spin<__inst>::_M_do_lock(volatile __stl_atomic_t* __lock) {
+_STLP_mutex_spin<__inst>::_M_do_lock(volatile __stl_atomic_t* _STLP_UNUSED(__lock)) {
 #  if defined(_STLP_ATOMIC_EXCHANGE)
   if (_Atomic_swap(__lock, 1)) {
     unsigned __my_spin_max = _STLP_mutex_spin<0>::__max;
