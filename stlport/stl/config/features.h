@@ -62,6 +62,12 @@
  */
 #include <stl/config/user_config.h>
 
+#ifdef __GNUC__
+#  define _STLP_UNUSED(x) x __attribute__((unused))
+#else
+#  define _STLP_UNUSED(x) x
+#endif /* __GNUC__ */
+
 #if defined (_STLP_DEBUG) && !defined (_STLP_DEBUG_LEVEL)
 #  define _STLP_DEBUG_LEVEL _STLP_STLPORT_DBG_LEVEL
 #endif

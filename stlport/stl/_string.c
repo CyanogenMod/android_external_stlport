@@ -110,7 +110,7 @@ inline _InputIter __str_find_first_not_of_aux3(_InputIter __first1, _InputIter _
 template <class _InputIter, class _CharT, class _Tp, class _Traits>
 inline _InputIter __str_find_first_not_of_aux2(_InputIter __first1, _InputIter __last1,
                                                const _CharT* __first2, const _CharT* __last2,
-                                               _Tp* __pt, _Traits* __traits) {
+                                               _Tp* _STLP_UNUSED(__pt), _Traits* __traits) {
   typedef typename _IsIntegral<_Tp>::_Ret _IsIntegral;
   typedef typename _IsCharLikeType<_CharT>::_Ret _IsCharLike;
   typedef typename _Land2<_IsIntegral, _IsCharLike>::_Ret _UseStrcspnLikeAlgo;
