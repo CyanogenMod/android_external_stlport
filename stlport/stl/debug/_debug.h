@@ -436,7 +436,7 @@ _STLP_MOVE_TO_STD_NAMESPACE
 _STLP_END_NAMESPACE
 
 #else
-#  define _STLP_VERBOSE_ASSERT(expr, diagnostic)
+#  define _STLP_VERBOSE_ASSERT(expr, diagnostic) while(false) { (void)(expr); }
 #  define _STLP_DEBUG_CHECK(expr)
 #endif /* _STLP_DEBUG */
 
