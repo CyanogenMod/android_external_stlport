@@ -20,6 +20,8 @@
 #  include <stl/_prolog.h>
 #endif
 
+#include <stl/_cstddef.h> // for std::size_t
+
 // libstdc++ v3, timestamp 20050519 (3.4.4) has __type_traits,
 // libstdc++ v3, timestamp 20060306 (3.4.6) has __type_traits,
 // while libstdc++ v3, 20050921 (4.0.2) not; use libstdc++ instead
