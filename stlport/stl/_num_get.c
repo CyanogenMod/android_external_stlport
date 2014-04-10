@@ -155,6 +155,9 @@ __get_integer(_InputIter& __first, _InputIter& __last,
      }
    }
 
+   if ((__result == (numeric_limits<_Integer>::min)()) && !__is_negative)
+     __ovflow = true;
+
    if (__is_group && __group_sizes_end != __group_sizes) {
      *__group_sizes_end++ = __current_group_size;
    }
