@@ -81,4 +81,7 @@
 #define _STLP_NO_CONTAINERS_EXTENSION 1
 #endif
 
+// Without this, we don't get int16_t/uint16_t num_get::get overloads.
+#define _STLP_FIX_LIBRARY_ISSUES 1
+
 #endif /* __stl_config__android_h */
