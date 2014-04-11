@@ -207,6 +207,8 @@ _STLP_MOVE_TO_STD_NAMESPACE
 
 template <class _CharT, class _Traits>
 basic_istream<_CharT, _Traits>& basic_istream<_CharT, _Traits>::operator>> (short& __val) {
+#if 0 // This breaks __get_integer for short.
+// BEGIN Android-removed.
   long __lval;
   _STLP_PRIV __get_num(*this, __lval);
   if ( this->fail() ) {
@@ -221,10 +223,17 @@ basic_istream<_CharT, _Traits>& basic_istream<_CharT, _Traits>::operator>> (shor
   else
     __val = __tmp;
   return *this;
+// END Android-removed.
+#else
+  _STLP_PRIV __get_num(*this, __val);
+  return *this;
+#endif
 }
 
 template <class _CharT, class _Traits>
 basic_istream<_CharT, _Traits>& basic_istream<_CharT, _Traits>::operator>> (int& __val) {
+#if 0 // This seems to work, but there doesn't seem to be any reason for it.
+// BEGIN Android-removed.
   long __lval;
   _STLP_PRIV __get_num(*this, __lval);
   if ( this->fail() ) {
@@ -239,6 +248,11 @@ basic_istream<_CharT, _Traits>& basic_istream<_CharT, _Traits>::operator>> (int&
   else
     __val = __tmp;
   return *this;
+// END Android-removed.
+#else
+  _STLP_PRIV __get_num(*this, __val);
+  return *this;
+#endif
 }
 
 template <class _CharT, class _Traits>
