@@ -843,9 +843,9 @@ namespace _STL = _STLP_STD_NAME;
 #  define _STLP_TRY
 #  define _STLP_CATCH_ALL if (false)
 #  ifndef _STLP_THROW
-#    define _STLP_THROW(x)
+#    define _STLP_THROW(x) abort()
 #  endif
-#  define _STLP_RETHROW {}
+#  define _STLP_RETHROW abort()
 #  define _STLP_UNWIND(action)
 #  define _STLP_THROWS(x)
 #  define _STLP_NOTHROW
