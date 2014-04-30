@@ -151,7 +151,6 @@ __get_formatted_time _STLP_WEAK (_InIt1 __first,  _InIt1 __last,
                                  _Ch*, const _TimeInfo& __table,
                                  const ios_base& __s, ios_base::iostate& __err, tm* __t) {
   const ctype<_Ch>& __ct = use_facet<ctype<_Ch> >(__s.getloc());
-  typedef basic_string<_Ch, char_traits<_Ch>, allocator<_Ch> > string_type;
   size_t offset;
 
   while (__first != __last && __format != __format_end) {
@@ -366,7 +365,7 @@ time_get<_Ch, _InIt>::do_get_year(_InIt __s, _InIt  __end,
 template <class _Ch, class _InIt>
 _InIt
 time_get<_Ch, _InIt>::do_get_weekday(_InIt __s, _InIt  __end,
-                                     ios_base &__str, ios_base::iostate &__err,
+                                     ios_base& /*__str*/, ios_base::iostate &__err,
                                      tm *__t) const {
   bool __result =
     _STLP_PRIV __get_short_or_long_dayname(__s, __end, this->_M_timeinfo, __t);
@@ -383,7 +382,7 @@ time_get<_Ch, _InIt>::do_get_weekday(_InIt __s, _InIt  __end,
 template <class _Ch, class _InIt>
 _InIt
 time_get<_Ch, _InIt>::do_get_monthname(_InIt __s, _InIt  __end,
-                                       ios_base &__str, ios_base::iostate &__err,
+                                       ios_base& /*__str*/, ios_base::iostate &__err,
                                        tm *__t) const {
   bool __result =
     _STLP_PRIV __get_short_or_long_monthname(__s, __end, this->_M_timeinfo, __t);
