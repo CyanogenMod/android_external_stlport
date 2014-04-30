@@ -73,12 +73,12 @@ public:
 protected:
   ~messages() {}
 
-  virtual catalog     do_open(const string& __fn, const locale& __loc) const
+  virtual catalog     do_open(const string& /*__fn*/, const locale& /*__loc*/) const
   { return -1; }
-  virtual string_type do_get(catalog __c, int __set, int __msgid,
+  virtual string_type do_get(catalog /*__c*/, int /*__set*/, int /*__msgid*/,
                              const string_type& __dfault) const
   { return __dfault; }
-  virtual void        do_close(catalog __c) const
+  virtual void        do_close(catalog /*__c*/) const
   {}
 };
 
@@ -106,12 +106,12 @@ public:
 protected:
   ~messages() {}
 
-  virtual catalog     do_open(const string& __fn, const locale& __loc) const
+  virtual catalog     do_open(const string& /*__fn*/, const locale& /*__loc*/) const
   { return -1; }
-  virtual string_type do_get(catalog __c, int __set, int __msgid,
+  virtual string_type do_get(catalog /*__c*/, int /*__set*/, int /*__msgid*/,
                              const string_type& __dfault) const
   { return __dfault; }
-  virtual void        do_close(catalog __c) const
+  virtual void        do_close(catalog /*__c*/) const
   {}
 };
 
