@@ -207,8 +207,6 @@ _STLP_MOVE_TO_STD_NAMESPACE
 
 template <class _CharT, class _Traits>
 basic_istream<_CharT, _Traits>& basic_istream<_CharT, _Traits>::operator>> (short& __val) {
-#if 0 // This breaks __get_integer for short.
-// BEGIN Android-removed.
   long __lval;
   _STLP_PRIV __get_num(*this, __lval);
   if ( this->fail() ) {
@@ -223,17 +221,10 @@ basic_istream<_CharT, _Traits>& basic_istream<_CharT, _Traits>::operator>> (shor
   else
     __val = __tmp;
   return *this;
-// END Android-removed.
-#else
-  _STLP_PRIV __get_num(*this, __val);
-  return *this;
-#endif
 }
 
 template <class _CharT, class _Traits>
 basic_istream<_CharT, _Traits>& basic_istream<_CharT, _Traits>::operator>> (int& __val) {
-#if 0 // This seems to work, but there doesn't seem to be any reason for it.
-// BEGIN Android-removed.
   long __lval;
   _STLP_PRIV __get_num(*this, __lval);
   if ( this->fail() ) {
@@ -248,11 +239,6 @@ basic_istream<_CharT, _Traits>& basic_istream<_CharT, _Traits>::operator>> (int&
   else
     __val = __tmp;
   return *this;
-// END Android-removed.
-#else
-  _STLP_PRIV __get_num(*this, __val);
-  return *this;
-#endif
 }
 
 template <class _CharT, class _Traits>
@@ -1159,6 +1145,7 @@ basic_istream<_CharT, _Traits>::ignore(streamsize __n, int_type __delim) {
 
   if (__sentry) {
     basic_streambuf<_CharT, _Traits>* __buf = this->rdbuf();
+    typedef _STLP_PRIV _Constant_unary_fun<bool, int_type> _Const_bool;
     typedef _STLP_PRIV _Constant_binary_fun<streamsize, streamsize, streamsize>
       _Const_streamsize;
     const streamsize __maxss = (numeric_limits<streamsize>::max)();

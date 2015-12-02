@@ -62,12 +62,6 @@
  */
 #include <stl/config/user_config.h>
 
-#ifdef __GNUC__
-#  define _STLP_UNUSED(x) x __attribute__((unused))
-#else
-#  define _STLP_UNUSED(x) x
-#endif /* __GNUC__ */
-
 #if defined (_STLP_DEBUG) && !defined (_STLP_DEBUG_LEVEL)
 #  define _STLP_DEBUG_LEVEL _STLP_STLPORT_DBG_LEVEL
 #endif
@@ -168,7 +162,7 @@
 #    define _STLP_BIG_ENDIAN 1
 #  elif defined (__i386) || defined (_M_IX86) || defined (_M_ARM) || \
         defined (__amd64__) || defined (_M_AMD64) || defined (__x86_64__) || \
-        defined (__alpha__) || defined (_MIPSEL)
+        defined (__alpha__)
 #    define _STLP_LITTLE_ENDIAN 1
 #  elif defined (__ia64__)
     /* itanium allows both settings (for instance via gcc -mbig-endian) - hence a seperate check is required */
@@ -314,7 +308,7 @@
 /* Some compiler support 0 size array so we use negative size array to generate
  * a compilation time error.
  */
-#  define _STLP_STATIC_ASSERT(expr) typedef char __static_assert[expr ? 1 : -1] __attribute__((__unused__));
+#  define _STLP_STATIC_ASSERT(expr) typedef char __static_assert[expr ? 1 : -1];
 #endif
 
 /* apple mpw exception handling bug */
@@ -843,9 +837,9 @@ namespace _STL = _STLP_STD_NAME;
 #  define _STLP_TRY
 #  define _STLP_CATCH_ALL if (false)
 #  ifndef _STLP_THROW
-#    define _STLP_THROW(x) abort()
+#    define _STLP_THROW(x)
 #  endif
-#  define _STLP_RETHROW abort()
+#  define _STLP_RETHROW {}
 #  define _STLP_UNWIND(action)
 #  define _STLP_THROWS(x)
 #  define _STLP_NOTHROW

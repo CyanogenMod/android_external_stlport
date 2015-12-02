@@ -20,8 +20,6 @@
 #  include <stl/_prolog.h>
 #endif
 
-#include <stl/_cstddef.h> // for std::size_t
-
 // libstdc++ v3, timestamp 20050519 (3.4.4) has __type_traits,
 // libstdc++ v3, timestamp 20060306 (3.4.6) has __type_traits,
 // while libstdc++ v3, 20050921 (4.0.2) not; use libstdc++ instead
@@ -655,17 +653,7 @@ struct remove_reference<_Tp&>
 {
     typedef _Tp type;
 };
-
-#if __cplusplus >= 201103L
-// This shouldn't be in tr1 but was added here anyways since the existing remove_reference is in
-// tr1.
-template <class _Tp>
-struct remove_reference<_Tp&&>
-{
-    typedef _Tp type;
-};
-#endif
-
+  
 template <class _Tp>
 struct add_reference
 {

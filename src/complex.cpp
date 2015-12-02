@@ -226,24 +226,18 @@ static complex<_Tp> log10T(const complex<_Tp>& z, const _Tp& ln10_inv) {
   return r;
 }
 
+static const float LN10_INVF = 1.f / ::log(10.f);
 _STLP_DECLSPEC complex<float> _STLP_CALL log10(const complex<float>& z)
-{
-  const float LN10_INVF = 1.f / ::log(10.f);
-  return log10T(z, LN10_INVF);
-}
+{ return log10T(z, LN10_INVF); }
 
+static const double LN10_INV = 1. / ::log10(10.);
 _STLP_DECLSPEC complex<double> _STLP_CALL log10(const complex<double>& z)
-{
-  const double LN10_INV = 1. / ::log10(10.);
-  return log10T(z, LN10_INV);
-}
+{ return log10T(z, LN10_INV); }
 
 #if !defined (_STLP_NO_LONG_DOUBLE)
+static const long double LN10_INVL = 1.l / ::log(10.l);
 _STLP_DECLSPEC complex<long double> _STLP_CALL log10(const complex<long double>& z)
-{
-  const long double LN10_INVL = 1.l / ::log(10.l);
-  return log10T(z, LN10_INVL);
-}
+{ return log10T(z, LN10_INVL); }
 #endif
 
 //----------------------------------------------------------------------
