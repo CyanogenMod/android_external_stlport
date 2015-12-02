@@ -26,8 +26,7 @@
 
 _STLP_BEGIN_NAMESPACE
 
-#define _NAMELESS   "*"
-static const char _Nameless[] = _NAMELESS;
+static const string _Nameless("*");
 
 static inline bool is_C_locale_name (const char* name)
 { return ((name[0] == 'C') && (name[1] == 0)); }
@@ -249,9 +248,8 @@ locale::locale(const locale& L, const char* name, locale::category c)
   if (!name)
     _M_throw_on_null_name();
 
-  if (!::strcmp(_Nameless, name)) {
-    _STLP_THROW(runtime_error("Invalid locale name '" _NAMELESS "'"));
-  }
+  if (_Nameless == name)
+    _STLP_THROW(runtime_error((string("Invalid locale name '") + _Nameless + "'").c_str()));
 
   _Locale_impl* impl = 0;
 

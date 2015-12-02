@@ -59,9 +59,6 @@
 #  elif defined (__HP_aCC)
 #    include <stl/config/_hpacc.h>
 #  endif
-#elif defined (__ANDROID__)
-/* Android mobile phone platform. Somewhat but not entirely GNU/Linux-like */
-#  include <stl/config/_android.h>
 #elif defined (linux) || defined (__linux__)
 #  include <stl/config/_linux.h>
 #  if defined (__BORLANDC__)

@@ -110,7 +110,7 @@ inline _InputIter __str_find_first_not_of_aux3(_InputIter __first1, _InputIter _
 template <class _InputIter, class _CharT, class _Tp, class _Traits>
 inline _InputIter __str_find_first_not_of_aux2(_InputIter __first1, _InputIter __last1,
                                                const _CharT* __first2, const _CharT* __last2,
-                                               _Tp* _STLP_UNUSED(__pt), _Traits* __traits) {
+                                               _Tp* __pt, _Traits* __traits) {
   typedef typename _IsIntegral<_Tp>::_Ret _IsIntegral;
   typedef typename _IsCharLikeType<_CharT>::_Ret _IsCharLike;
   typedef typename _Land2<_IsIntegral, _IsCharLike>::_Ret _UseStrcspnLikeAlgo;
@@ -242,11 +242,11 @@ basic_string<_CharT,_Traits,_Alloc>&
 basic_string<_CharT,_Traits,_Alloc>::_M_assign(const _CharT* __f, const _CharT* __l) {
   ptrdiff_t __n = __l - __f;
   if (__STATIC_CAST(size_type, __n) <= size()) {
-    _Traits::move(this->_M_Start(), __f, __n);
+    _Traits::copy(this->_M_Start(), __f, __n);
     erase(begin() + __n, end());
   }
   else {
-    _Traits::move(this->_M_Start(), __f, size());
+    _Traits::copy(this->_M_Start(), __f, size());
     _M_append(__f + size(), __l);
   }
   return *this;

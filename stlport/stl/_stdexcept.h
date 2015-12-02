@@ -25,7 +25,8 @@
 
 #if !defined (_STLP_USE_NATIVE_STDEXCEPT) || defined (_STLP_USE_OWN_NAMESPACE)
 
-#  if defined(_STLP_USE_EXCEPTIONS) || 1
+#  if defined(_STLP_USE_EXCEPTIONS) || \
+    !(defined(_MIPS_SIM) && defined(_ABIO32) && (_MIPS_SIM == _ABIO32))
 
 _STLP_BEGIN_NAMESPACE
 
