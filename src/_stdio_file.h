@@ -104,7 +104,7 @@ inline int _FILE_fd(const FILE *__f) { return __f->_fd; }
 
 #else  /* The most common access to file descriptor. */
 
-inline int _FILE_fd(const FILE *__f) { return __f->_file; }
+inline int _FILE_fd(const FILE *__f) { return ::fileno(__CONST_CAST(FILE*, __f)); }
 
 #endif
 
